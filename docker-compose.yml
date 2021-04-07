@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  ser2net:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    volumes:
+      - ./ser2net.conf:/etc/ser2net.conf
+    ports:
+      - "2000:2000"
+    restart: unless-stopped
